@@ -1,0 +1,26 @@
+{
+  "name": "resize-image",
+  "version": "0.0.1",
+  "description": "Resize images in browser using canvas",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csbun/resize-image.git"
+  },
+  "keywords": [
+    "resize",
+    "image",
+    "canvas"
+  ],
+  "author": "Hans Chan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csbun/resize-image/issues"
+  },
+  "homepage": "https://github.com/csbun/resize-image",
+  "dependencies": {
+    "browserify": "^11.0.0"
+  }
+}
