@@ -1,0 +1,23 @@
+{
+  "name": "resize-image",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/csbun/resize-image",
+  "authors": [
+    "Hans Chan <chenhc@ucweb.com>"
+  ],
+  "description": "Resize images in browser using canvas",
+  "keywords": [
+    "resize",
+    "image",
+    "canvas"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
