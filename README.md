@@ -44,3 +44,7 @@ resize an <img> or Image to base64
 - .BMP
 - .JPEG
 - .WEBP
+
+## Examples
+
+- [simple example](https://github.com/csbun/resize-image/tree/master/example)

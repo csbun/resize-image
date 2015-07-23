@@ -1,10 +1,9 @@
 {
   "name": "resize-image",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Resize images in browser using canvas",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/csbun/resize-image.git"
@@ -21,6 +20,8 @@
   },
   "homepage": "https://github.com/csbun/resize-image",
   "dependencies": {
+  },
+  "devDependencies": {
     "browserify": "^11.0.0"
   }
 }
