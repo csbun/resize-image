@@ -29,6 +29,14 @@
     out[IMG_TYPE[i].toUpperCase()] = IMG_TYPE[i];
   }
 
+  /**
+   * resize an <img> to base64
+   * @param  {Image}  img    an <img> or Image()
+   * @param  {number} width  output image width
+   * @param  {number} height output image height
+   * @param  {string} type   output image type
+   * @return {string}        output image base64 string
+   */
   out.resize = function resize(img, width, height, type) {
     if (!img || !width) {
       return img;
