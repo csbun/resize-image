@@ -1,6 +1,5 @@
 (function(root, factory) {
   'use strict';
-  console.log(exports);
   if (typeof exports === 'object') {
     // CommonJS
     module.exports = factory();
@@ -18,7 +17,7 @@
     // Global Variables
     root.ResizeImage = factory();
   }
-}(this, function () {
+})(this, function () {
   'use strict';
   var out = {};
 
@@ -66,4 +65,4 @@
   };
 
   return out;
-}));
+});
