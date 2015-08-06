@@ -1,6 +1,6 @@
 {
   "name": "resize-image",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Resize images in browser using canvas",
   "main": "index.js",
   "scripts": {},

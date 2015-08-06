@@ -29,19 +29,15 @@
   }
 
   /**
-   * resize an <img> to base64
-   * @param  {Image}  img    an <img> or Image()
+   * resize an <img> or <canvas> to canvas
+   * @param  {Image}  img    an <img> or Image() or <canvas>
    * @param  {number} width  output image width
    * @param  {number} height output image height
-   * @param  {string} type   output image type
-   * @return {string}        output image base64 string
+   * @return {Canvas}        output image canvas
    */
-  out.resize = function resize(img, width, height, type) {
+  function resize2Canvas(img, width, height) {
     if (!img || !width) {
       return img;
-    }
-    if (IMG_TYPE.indexOf(type) < 0) {
-      type = IMG_TYPE_PNG;
     }
     height = height || width;
     // 按原图缩放
@@ -56,11 +52,32 @@
     canvas.width = width;
     canvas.height = height;
     var ctx = canvas.getContext('2d');
-    if (type !== IMG_TYPE_PNG) {
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, width, height);
-    }
     ctx.drawImage(img, 0, 0, width, height);
+    return canvas;
+  }
+  out.resize2Canvas = resize2Canvas;
+
+  /**
+   * resize an <img> or <canvas> to base64
+   * @param  {Image}  img    an <img> or Image() or <canvas
+   * @param  {number} width  output image width
+   * @param  {number} height output image height
+   * @param  {string} type   output image type
+   * @return {string}        output image base64 string
+   */
+  out.resize = function resize(img, width, height, type) {
+    if (IMG_TYPE.indexOf(type) < 0) {
+      type = IMG_TYPE_PNG;
+    }
+    var canvas = resize2Canvas(img, width, height);
+    var ctx = canvas.getContext('2d');
+    // set backgrund color to #fff while output type is NOT PNG
+    if (type !== IMG_TYPE_PNG) {
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = '';
+    }
     return canvas.toDataURL('image/' + type);
   };
 
