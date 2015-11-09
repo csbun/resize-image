@@ -8,7 +8,6 @@ var PORT = 7500;
 var ASSERT_SIZE = 200;
 
 describe('resize-image', function () {
-  this.timeout(5000);
   // start server
   before(function (done) {
     require('./server').listen(PORT, done);
