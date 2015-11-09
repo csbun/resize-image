@@ -8,6 +8,7 @@ var PORT = 7500;
 var ASSERT_SIZE = 200;
 
 describe('resize-image', function () {
+  this.timeout(5000);
   // start server
   before(function (done) {
     require('./server').listen(PORT, done);
@@ -18,7 +19,7 @@ describe('resize-image', function () {
     var nightmare = Nightmare();
 
     var min = yield nightmare
-      .goto('http://localhost:' + PORT + '/')
+      .goto('http://0.0.0.0:' + PORT + '/')
       .evaluate(function (ASSERT_SIZE) {
         var img = document.getElementById('img');
         // resize
