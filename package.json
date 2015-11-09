@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "Resize images in browser using canvas",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/csbun/resize-image.git"
@@ -19,9 +21,14 @@
     "url": "https://github.com/csbun/resize-image/issues"
   },
   "homepage": "https://github.com/csbun/resize-image",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "browserify": "^11.0.0"
+    "browserify": "^12.0.1",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "mocha-generators": "^1.2.0",
+    "mocha-lcov-reporter": "^1.0.0",
+    "nightmare": "^2.0.7"
   }
 }
