@@ -1,5 +1,6 @@
 (function(root, factory) {
   'use strict';
+  /* istanbul ignore else  */
   if (typeof exports === 'object') {
     // CommonJS
     module.exports = factory();
