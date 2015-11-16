@@ -5,6 +5,7 @@ Resize images in browser using canvas
 [![NPM](https://nodei.co/npm/resize-image.png)](https://nodei.co/npm/resize-image/)
 
 [![Build Status](https://travis-ci.org/csbun/resize-image.svg)](https://travis-ci.org/csbun/resize-image)
+[![Coverage Status](https://coveralls.io/repos/csbun/resize-image/badge.svg?branch=master&service=github)](https://coveralls.io/github/csbun/resize-image?branch=master)
 
 ## Install
 
