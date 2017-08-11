@@ -36,17 +36,17 @@ img.src = url; // local image url
 
 ### .resize2Canvas(img, width, height)
 
-resize an <img> or Image or <canvas> to canvas
+resize an `<img>` or `Image` or `<canvas>` to canvas
 
-- {Image}  img:    an <img> or Image()
+- {Image}  img:    an `<img>` or `Image()`
 - {number} width:  output image width
 - {number} height: output image height
 
 ### .resize(img, width, height, type)
 
-resize an <img> or Image or <canvas> to base64
+resize an `<img>` or `Image` or `<canvas>` to base64
 
-- {Image}  img:    an <img> or Image()
+- {Image}  img:    an `<img>` or `Image()`
 - {number} width:  output image width
 - {number} height: output image height
 - {string} type:   output image type
