@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Nov 13 2015 20:46:35 GMT+0800 (CST)
+// Generated on Sat Feb 24 2018 10:17:19 GMT+0800 (CST)
 
 module.exports = function(config) {
   config.set({
@@ -19,7 +19,7 @@ module.exports = function(config) {
     ],
 
 
-    // list of files to exclude
+    // list of files / patterns to exclude
     exclude: [
     ],
 
@@ -27,30 +27,25 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/index.js': ['webpack', 'babel']
+      '**/*.js': [
+        'webpack',
+        'sourcemap',
+      ]
     },
-    babelPreprocessor: {
-      options: {
-        presets: ['es2015'],
-      }
-    },
-    webpack: {
-      module: {
-        postLoaders: [{
-          test: /index\.js$/,
-          exclude: /(test|node_modules|bower_components)\//,
-          loader: 'istanbul-instrumenter'
-        }]
-      }
-    },
+    // preprocessors: ues [karma-webpack](https://github.com/webpack-contrib/karma-webpack)
+    webpack: require('./webpack.config'),
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: [
+      'progress',
+      'coverage',
+    ],
     coverageReporter: {
       type : 'lcov',
-      dir : 'coverage/'
+      dir : 'coverage',
+      subdir: '.',
     },
 
     // web server port
@@ -74,11 +69,8 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
       'Chrome',
-      'ChromeCanary',
       'Firefox',
       'Safari',
-      'PhantomJS',
-      'Opera'
     ],
 
 
@@ -87,7 +79,7 @@ module.exports = function(config) {
     singleRun: false,
 
     // Concurrency level
-    // how many browser should be started simultanous
+    // how many browser should be started simultaneous
     concurrency: Infinity
   })
 }

@@ -61,4 +61,9 @@ resize an `<img>` or `Image` or `<canvas>` to base64
 
 ## Examples
 
-- [simple example](https://github.com/csbun/resize-image/tree/master/example)
+```
+yarn
+npm run example
+```
+
+And visit http://localhost:9000/.

@@ -1,0 +1,8 @@
+{
+  "env": {
+    "test": {
+      /* https://github.com/istanbuljs/babel-plugin-istanbul */
+      "plugins": [ "istanbul" ]
+    }
+  }
+}
