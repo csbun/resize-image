@@ -6,7 +6,7 @@
   "scripts": {
     "example": "webpack-dev-server --config example/webpack.config.js",
     "test:local": "karma start",
-    "test:coverage": "cross-env NODE_ENV=test karma start --browsers Chrome --single-run",
+    "test:coverage": "cross-env NODE_ENV=test karma start --browsers Firefox --single-run",
     "test": "npm run test:coverage && find coverage -name lcov.info -print0 | xargs -0 cat | coveralls && rm -rf ./coverage"
   },
   "repository": {
