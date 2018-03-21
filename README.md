@@ -39,21 +39,21 @@ img.src = url; // local image url
 resize an `<img>` or `Image` or `<canvas>` to canvas
 
 - {Image}  img:    an `<img>` or `Image()`
-- {number} width:  output image width
-- {number} height: output image height
+- {number} [width]:  output image width
+- {number} [height]: output image height
 
 ### .resize(img, width, height, type)
 
 resize an `<img>` or `Image` or `<canvas>` to base64
 
 - {Image}  img:    an `<img>` or `Image()`
-- {number} width:  output image width
-- {number} height: output image height
-- {string} type:   output image type
+- {number} [width]:  output image width
+- {number} [height]: output image height
+- {string} [type]:   output image type
 
 ### types
 
-- .PNG
+- .PNG (default)
 - .GIF
 - .BMP
 - .JPEG

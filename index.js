@@ -30,6 +30,36 @@
   }
 
   /**
+   * 计算新图片宽高
+   * @private
+   * @param  {Image}  img    an <img> or Image() or <canvas>
+   * @param  {number} width  output image width
+   * @param  {number} height output image height
+   * @return {array<number>} [ width, height ]
+   */
+  function getNewImageDimentions(img, width, height) {
+    var detImg = img.width / img.height;
+    if (width > 0 && height > 0) {
+      // 同时指定了宽高，按原图缩放
+      if (width / height > detImg) {
+        height = width / detImg;
+      } else {
+        width = height * detImg;
+      }
+      return [ width, height ];
+    } else if (width > 0) {
+      // 只指定宽度的情况
+      return [ width, width / detImg ];
+    } else if (height > 0) {
+      // 只指定高度的情况
+      return [ height * detImg, height ];
+    } else {
+      // 否则原 size 返回
+      return [ img.width, img.height ];
+    }
+  }
+
+  /**
    * resize an <img> or <canvas> to canvas
    * @param  {Image}  img    an <img> or Image() or <canvas>
    * @param  {number} width  output image width
@@ -37,17 +67,14 @@
    * @return {Canvas}        output image canvas
    */
   function resize2Canvas(img, width, height) {
-    if (!img || !width) {
+    if (!img) {
       return img;
     }
-    height = height || width;
-    // 按原图缩放
-    var detImg = img.width / img.height;
-    if (width / height > detImg) {
-      height = width / detImg;
-    } else {
-      width = height * detImg;
-    }
+    // 计算新图片的宽高
+    var newImageDimentions = getNewImageDimentions(img, width, height);
+    width = newImageDimentions[0];
+    height = newImageDimentions[1];
+    
     // 画到 canvas 中
     var canvas = document.createElement('canvas');
     canvas.width = width;
