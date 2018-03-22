@@ -68,7 +68,7 @@
    */
   function resize2Canvas(img, width, height) {
     if (!img) {
-      return img;
+      throw new Error('`img` is required.');
     }
     // 计算新图片的宽高
     var newImageDimentions = getNewImageDimentions(img, width, height);
