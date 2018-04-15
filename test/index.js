@@ -62,14 +62,19 @@ describe('.resize', function() {
   it('Should fill with #fff for JPEG', function(done) {
     const img = new Image();
     img.onload = function() {
-      const base64 = resizeImage.resize(img, ASSERT_SIZE, ASSERT_SIZE, resizeImage.JPEG);
+      const base64 = resizeImage.resize(img, 0, 0, resizeImage.JPEG);
       const resizedImg = new Image();
       resizedImg.onload = function() {
+        const { width, height } = resizedImg;
+        // 应该和原图片大小相同
+        assert.equal(width, img.width);
+        assert.equal(height, img.height);
+        // 左上角的点应该是白色
         var canvas = document.createElement('canvas');
-        canvas.width = resizedImg.width;
-        canvas.height = resizedImg.height;
+        canvas.width = width;
+        canvas.height = height;
         var ctx = canvas.getContext('2d');
-        ctx.drawImage(resizedImg, 0, 0, resizedImg.width, resizedImg.height);
+        ctx.drawImage(resizedImg, 0, 0, width, height);
         const color = ctx.getImageData(1, 1, 1, 1).data;
         assert.equal(color[0], 255);
         assert.equal(color[1], 255);
