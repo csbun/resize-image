@@ -31,6 +31,8 @@
 
   /**
    * 计算新图片宽高
+   * Calculate new picture width
+   * 
    * @private
    * @param  {Image}  img    an <img> or Image() or <canvas>
    * @param  {number} width  output image width
@@ -41,6 +43,7 @@
     var detImg = img.width / img.height;
     if (width > 0 && height > 0) {
       // 同时指定了宽高，按原图缩放
+      // At the same time specify the width and height, according to the original zoom
       if (width / height > detImg) {
         height = width / detImg;
       } else {
@@ -49,12 +52,15 @@
       return [ width, height ];
     } else if (width > 0) {
       // 只指定宽度的情况
+      // Only specify width
       return [ width, width / detImg ];
     } else if (height > 0) {
       // 只指定高度的情况
+      // Only specify the height
       return [ height * detImg, height ];
     } else {
       // 否则原 size 返回
+      // Otherwise the original size returns
       return [ img.width, img.height ];
     }
   }
@@ -71,11 +77,13 @@
       throw new Error('`img` is required.');
     }
     // 计算新图片的宽高
+    // Calculate the width and height of the new image
     var newImageDimentions = getNewImageDimentions(img, width, height);
     width = newImageDimentions[0];
     height = newImageDimentions[1];
     
     // 画到 canvas 中
+    // Draw to canvas
     var canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
